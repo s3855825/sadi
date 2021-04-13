@@ -4,9 +4,11 @@ public class AcademicAssistant {
     private StudentEnrolmentManager enrolmentManager;
 
     public AcademicAssistant() {
+        enrolmentManager = new StudentEnrolment();
     }
 
     public void enrol() {
+
     }
 
     public void updateEnrolment() {

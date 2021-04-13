@@ -1,19 +1,35 @@
 package assignment.a1;
 
-import java.util.Date;
+import java.util.Scanner;
 
 public class Student {
     private String id;
     private String name;
-    private Date birthdate;
+    private String birthdate;
+    private InputValidator inputValidator;
 
     public Student() {
-    }
+        String dob;
+        inputValidator = new InputValidator();
+        Scanner scanner = new Scanner(System.in);
 
-    public Student(String newId, String newName, Date newBirthdDate) {
-        id = newId;
-        name = newName;
-        birthdate = newBirthdDate;
+        System.out.println("Enter student name: ");
+        name = scanner.nextLine();
+
+        System.out.println("Enter student id: ");
+        id = scanner.nextLine();
+        while (!inputValidator.isValidPattern(id, 0)) {
+            System.out.println("Invalid id pattern. Enter again.");
+            id = scanner.nextLine();
+        }
+
+        System.out.println("Enter student dob (MM/dd/yyyy): ");
+        dob = scanner.nextLine();
+        while (!inputValidator.isValidPattern(dob, 2)) {
+            System.out.println("Invalid date pattern. Enter again.");
+            dob = scanner.nextLine();
+        }
+        scanner.close();
     }
 
     public String getId() {
@@ -24,7 +40,7 @@ public class Student {
         return name;
     }
 
-    public Date getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
@@ -36,7 +52,7 @@ public class Student {
         name = newName;
     }
 
-    void setBirthdate(Date newBirthdate) {
+    void setBirthdate(String newBirthdate) {
         birthdate = newBirthdate;
     }
 }
