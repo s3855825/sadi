@@ -1,6 +1,7 @@
 package assignment.a1;
 
 import java.util.ArrayList;
+import java.util.StringJoiner;
 
 public class StudentEnrolment implements StudentEnrolmentManager {
     private Student student;
@@ -67,5 +68,50 @@ public class StudentEnrolment implements StudentEnrolmentManager {
     public ArrayList<StudentEnrolment> getAll() {
         // TODO Auto-generated method stub
         return studentEnrolments;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public boolean studentExist(String name) {
+        for (int i = 0; i < studentEnrolments.size(); i++) {
+            if (studentEnrolments.get(i).student.getName().equals(name)
+                    || studentEnrolments.get(i).student.getId().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean courseExist(String name) {
+        for (int i = 0; i < studentEnrolments.size(); i++) {
+            if (studentEnrolments.get(i).course.getName().equals(name)
+                    || studentEnrolments.get(i).course.getId().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void displayRecord() {
+        StringJoiner str = new StringJoiner(",");
+        str.add(student.getId());
+        str.add(student.getName());
+        str.add(student.getBirthdate());
+        str.add(course.getId());
+        str.add(course.getName());
+        str.add(String.valueOf(course.getNumCredit()));
+        str.add(semester);
+        String record = str.toString();
+        System.out.println(record);
     }
 }
