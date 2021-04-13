@@ -46,18 +46,21 @@ public class StudentEnrolment implements StudentEnrolmentManager {
     @Override
     public StudentEnrolment getOne(String studentId, String courseId, String semester) {
         // TODO Auto-generated method stub
-        try {
-            for (int i = 0; i < studentEnrolments.size(); i++) {
-                StudentEnrolment enrolmentRecord = studentEnrolments.get(i);
-                if (enrolmentRecord.student.getId() == studentId && enrolmentRecord.course.getId() == courseId
-                        && enrolmentRecord.semester.equals(semester)) {
-                    return enrolmentRecord;
-                }
+        StudentEnrolment enrolmentRecord = null;
+
+        for (int i = 0; i < studentEnrolments.size(); i++) {
+            enrolmentRecord = studentEnrolments.get(i);
+            if (enrolmentRecord.student.getId() == studentId && enrolmentRecord.course.getId() == courseId
+                    && enrolmentRecord.semester.equals(semester)) {
+                return enrolmentRecord;
             }
-        } catch (Exception e) {
-            System.out.println(e);
-            throw new RecordNotFoundException();
         }
+
+        if (enrolmentRecord == null) {
+            System.out.println("Record not found.");
+        }
+
+        return enrolmentRecord;
     }
 
     @Override
