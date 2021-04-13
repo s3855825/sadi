@@ -13,6 +13,7 @@ public class Student {
         inputValidator = new InputValidator();
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Enter student's information");
         System.out.println("Enter student name: ");
         name = scanner.nextLine();
 

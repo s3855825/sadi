@@ -11,6 +11,7 @@ public class Course {
         InputValidator inputValidator = new InputValidator();
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Enter student's information");
         System.out.println("Enter course name: ");
         name = scanner.nextLine();
 
