@@ -7,6 +7,12 @@ public class Course {
     private String name;
     private int numCredit;
 
+    public Course(String newId, String newName, String newNumCredit) {
+        id = newId;
+        name = newName;
+        numCredit = Integer.parseInt(newNumCredit);
+    }
+
     public Course() {
         InputValidator inputValidator = new InputValidator();
         Scanner scanner = new Scanner(System.in);

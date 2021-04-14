@@ -21,21 +21,18 @@ public class StudentEnrolment implements StudentEnrolmentManager {
 
     @Override
     public void add(Student newStudent, Course newCourse, String newSemester) {
-        // TODO Auto-generated method stub
         StudentEnrolment newStudentEnrolment = new StudentEnrolment(newStudent, newCourse, newSemester);
         studentEnrolments.add(newStudentEnrolment);
     }
 
     @Override
     public void delete(Student student, Course course, String semester) {
-        // TODO Auto-generated method stub
         StudentEnrolment newStudentEnrolment = new StudentEnrolment(student, course, semester);
         studentEnrolments.remove(newStudentEnrolment);
     }
 
     @Override
     public void update(StudentEnrolment studentEnrolment, Student newStudent, Course newCourse, String newSemester) {
-        // TODO Auto-generated method stub
         StudentEnrolment newStudentEnrolment = new StudentEnrolment(newStudent, newCourse, newSemester);
         for (int i = 0; i < studentEnrolments.size(); i++) {
             if (studentEnrolments.get(i) == newStudentEnrolment) {
@@ -46,7 +43,7 @@ public class StudentEnrolment implements StudentEnrolmentManager {
 
     @Override
     public StudentEnrolment getOne(String studentId, String courseId, String semester) {
-        // TODO Auto-generated method stub
+
         StudentEnrolment enrolmentRecord = null;
 
         for (int i = 0; i < studentEnrolments.size(); i++) {
@@ -66,7 +63,7 @@ public class StudentEnrolment implements StudentEnrolmentManager {
 
     @Override
     public ArrayList<StudentEnrolment> getAll() {
-        // TODO Auto-generated method stub
+
         return studentEnrolments;
     }
 

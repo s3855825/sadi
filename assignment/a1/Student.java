@@ -8,6 +8,12 @@ public class Student {
     private String birthdate;
     private InputValidator inputValidator;
 
+    public Student(String newId, String newName, String newBirthdate) {
+        id = newId;
+        name = newName;
+        birthdate = newBirthdate;
+    }
+
     public Student() {
         String dob;
         inputValidator = new InputValidator();
